@@ -1,9 +1,11 @@
+# Use Python 3.11.5 slim-bullseye image as the base image
 FROM python:3.11.5-slim-bullseye
 
 # Update package list and install necessary packages
 RUN apt-get update \
   && apt-get install -y --no-install-recommends \
      build-essential \
+     pkg-config \
      default-libmysqlclient-dev \
   && rm -rf /var/lib/apt/lists/* \
   && pip install --no-cache-dir --upgrade pip
